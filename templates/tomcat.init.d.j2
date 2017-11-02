@@ -1,0 +1,18 @@
+#!/bin/bash
+#chkconfig: 234 20 80
+
+export CATALINA_HOME={{ tomcat_install_path }}
+
+case $1 in
+        start)
+                su tomcat -c $CATALINA_HOME/bin/startup.sh
+                ;;
+        stop)
+                su tomcat -c $CATALINA_HOME/bin/shutdown.sh
+                ;;
+        restart)
+                su tomcat -c $CATALINA_HOME/bin/shutdown.sh
+                su tomcat -c $CATALINA_HOME/bin/startup.sh
+                ;;
+esac
+exit 0

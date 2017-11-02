@@ -1,8 +1,7 @@
 ---
 
 - name: Tomcat | Configuring service
-  systemd:
+  service:
     name: tomcat
-    state: "{{ tomcat_service_state }}"
+    state: "{{ 'reloaded' if tomcat_service_state == 'started' else 'stopped' }}"
     enabled: "{{ tomcat_service_enabled }}"
-    daemon_reload: yes

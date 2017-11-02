@@ -41,3 +41,12 @@
     dest: /lib/systemd/system/tomcat.service
     mode: 0644
   notify: restart tomcat
+  when: ansible_os_family == 'Debian'
+  
+- name: Tomcat | Copy Daemon script
+  template:
+    src: tomcat.init.d.j2
+    dest: /etc/init.d/tomcat
+    mode: 0755
+  notify: restart tomcat
+  when: ansible_os_family == 'RedHat'
