@@ -13,6 +13,8 @@ tomcat_group: tomcat
 tomcat_service_enabled: yes
 # current state: started, stopped
 tomcat_service_state: started
+# service name
+tomcat_service_name: tomcat
 
 # Files & Paths
 tomcat_install_path: "/opt/tomcat"

@@ -2,6 +2,6 @@
 
 - name: Tomcat | Configuring service
   service:
-    name: tomcat
+    name: "{{ tomcat_service_name }}"
     state: "{{ 'reloaded' if tomcat_service_state == 'started' else 'stopped' }}"
     enabled: "{{ tomcat_service_enabled }}"
